@@ -4,3 +4,6 @@
 [submodule "tools/ESMValTool.git"]
 	path = tools/ESMValTool.git
 	url = https://github.com/ESMValGroup/ESMValTool.git
+[submodule "tools/ESMValTool"]
+	path = tools/ESMValTool
+	url = https://github.com/ESMValGroup/ESMValTool
