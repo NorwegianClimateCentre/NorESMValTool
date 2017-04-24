@@ -1,0 +1,6 @@
+[submodule "tools/noresm2cmor"]
+	path = tools/noresm2cmor
+	url = https://github.com/NorwegianClimateCentre/noresm2cmor.git
+[submodule "tools/ESMValTool.git"]
+	path = tools/ESMValTool.git
+	url = https://github.com/ESMValGroup/ESMValTool.git

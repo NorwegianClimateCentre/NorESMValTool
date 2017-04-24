@@ -1,0 +1,1 @@
+../tools/noresm2cmor/scripts/cmorize_generic.sh
