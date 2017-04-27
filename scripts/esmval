@@ -12,8 +12,7 @@ then
   echo "Usage: $0 <cmor output folder> <NorESMValTool namelist>"
   echo 
   echo "Example: $0 /projects/NS2345K/noresm/cmorout/ingo/N20TRAERCN_f19_g16_01.2000-2000 $NAMELISTDIR/namelist_MyDiag.xml" 
-  echo 
-  echo "Note: The cmorized output must be created with NorESMValTool's cmorize.sh script."
+  echo
   exit
 fi
 
