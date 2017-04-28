@@ -7,6 +7,7 @@ mkdir -p $ESMVAL_HOME
 cp -rp $ESMVAL_REPO/tools $ESMVAL_HOME
 cp -rp $ESMVAL_REPO/scripts $ESMVAL_HOME
 cp -rp $ESMVAL_REPO/mods $ESMVAL_HOME
+cp -rp update.sh $ESMVAL_HOME  
 cd $ESMVAL_HOME 
 ln -s $ESMVAL_REPO/data . 
 

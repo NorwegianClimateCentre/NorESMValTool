@@ -1,14 +1,17 @@
 NorESMValTool 
 -------------
 
-NorESMValTool is an extension of the ESMValTool for NorESM. It includes tools for CMOR-ization of NorESM output and other scripts that help NorESM users to use and develop the ESMValTool on national resources.  
+NorESMValTool is an extension of the ESMValTool for NorESM. It includes tools 
+for CMOR-ization of NorESM output and other scripts that help NorESM users to 
+use and develop the ESMValTool on national resources.  
 
 1. Installation
 ---------------
 
 1.1 First-time installation 
 
-Before using the tool on Norstore, create your personal copy by executing the installation script 
+Before using the tool on Norstore, create your personal copy by executing the 
+installation script 
 /projects/NS2345K/NorESMValTool/install.sh 
 
 This will clone all necessary content into following directory structure
@@ -21,23 +24,29 @@ This will clone all necessary content into following directory structure
       ESMValTool  (unmodified ESMValTool release obtained from github.com)  
       noresm2cmor (CMOR-ization tools for NorESM) 
 
-Script and data path settings are personalized in ~/NorESMValTool/tools/ESMValTool/config_private.xml and following directories created 
+Script and data path settings are personalized in 
+~/NorESMValTool/tools/ESMValTool/config_private.xml and following directories 
+created 
   ~/NorESMValTool/plots 
   /scratch/$USER/NorESMValTool/climo  (used for climatologies computed by ESMValTool)
   /scratch/$USER/NorESMValTool/regrid (used for model output regridded by ESMValTool)
-  /scratch/$USER/NorESMValTool/regrid (work directory of ESMValTool)  
+  /scratch/$USER/NorESMValTool/work   (work directory of ESMValTool)  
       
 1.2 Updating installation 
 
 To synchronize your installation, execute the script
 /projects/NS2345K/NorESMValTool/install.sh 
 
-WARNING: Depending on the file time stamps, the synchronization may undo any modifications that you previously applied to the scripts in your personal NorESMValTool installation. Therefore it is recommended to give modified files new names or to store them in a seperate folder.      
+WARNING: Depending on the file time stamps, the synchronization may undo any 
+modifications that you previously applied to the scripts in your personal 
+NorESMValTool installation. Therefore it is recommended to give modified files 
+new names or to store them in a seperate folder.      
 
 2. CMOR-ization
 ---------------
 
-The ESMValTool requires that all model output is converted to CMOR-ized format i.e. complies with the CMIP5 standard. 
+The ESMValTool requires that all model output is converted to CMOR-ized format 
+i.e. complies with the CMIP5 standard. 
 
 For NorESM, such conversion can be performed by running 
 ~/NorESMValTool/scripts/cmorize <NorESM archive directory>/<case name> <first year> <last year>
@@ -54,7 +63,9 @@ NOTE: The CMOR-ization of NorESM output can be fine-tuned in
 3. Running ESMValTool 
 ---------------------
 
-Log on to Norstore's compute node cruncher.norstore.uio.no via ssh from login nodes. Note that ESMValTool is likely to run out of memory when run directly on NorStore's login nodes.  
+Log on to Norstore's compute node cruncher.norstore.uio.no via ssh from login 
+nodes. Note that ESMValTool is likely to run out of memory when run directly on 
+NorStore's login nodes.  
 
 Execute ESMValTool wrapper script with
 ~/NorESMValTool/scripts/esmval <path to CMOR-ized NorESM output> <customized ESMValTool input namelist>
@@ -64,14 +75,23 @@ To test the ESMValTool on CMOR-ized sample output (see step 2), run
 
 The test will create the plot ~/NorESMValTool/plots/MyDiag/MyDiag_MyVar.ps
 
-NOTE: The esmval-wrapper will create a copy of the namelist specified and then search for a string MODELTAG in the namelist and replace it such that it points to your CMOR-ized model output. Passing the modified namelist, the wrapper will execute the main ESMValTool script ~/NorESMValTool/tools/ESMValTool/main.py.   
+NOTE: The esmval-wrapper will create a copy of the namelist specified and then 
+search for a string MODELTAG in the namelist and replace it such that it points 
+to your CMOR-ized model output. Passing the modified namelist, the wrapper will 
+execute the main ESMValTool script ~/NorESMValTool/tools/ESMValTool/main.py.   
 
 4. Installation of new data
 ---------------------------
 
-Additional CMIP5 model output can be readily downloaded to the respective model folders in /projects/NS2345K/NorESMValTool/data/model/CMIP5/     
+Additional CMIP5 model output can be readily downloaded to the respective model 
+folders in /projects/NS2345K/NorESMValTool/data/model/CMIP5/     
 
-New observational products should be first downloaded to /projects/NS2345K/NorESMValTool/data/rawobs/ and then be reformatted using the respective script in ~/NorESMValTool/tools/ESMValTool/reformat_scripts/obs/. The reformatted observational data will then be stored in /projects/NS2345K/NorESMValTool/data/obs/.  
+New observational products should be first downloaded to 
+/projects/NS2345K/NorESMValTool/data/rawobs/ and then be reformatted using the 
+respective script in ~/NorESMValTool/tools/ESMValTool/reformat_scripts/obs/. 
+
+The reformatted observational data will then be stored in 
+/projects/NS2345K/NorESMValTool/data/obs/.  
 
 5. Resources
 ------------
