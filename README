@@ -8,8 +8,6 @@ use and develop the ESMValTool on national resources.
 1. Installation
 ---------------
 
-1.1 First-time installation 
-
 Before using the tool on Norstore, create your personal copy by executing the 
 installation script 
 /projects/NS2345K/NorESMValTool/install.sh 
@@ -32,16 +30,6 @@ created
   /scratch/$USER/NorESMValTool/regrid (used for model output regridded by ESMValTool)
   /scratch/$USER/NorESMValTool/work   (work directory of ESMValTool)  
       
-1.2 Updating installation 
-
-To synchronize your installation, execute the script
-/projects/NS2345K/NorESMValTool/install.sh 
-
-WARNING: Depending on the file time stamps, the synchronization may undo any 
-modifications that you previously applied to the scripts in your personal 
-NorESMValTool installation. Therefore it is recommended to give modified files 
-new names or to store them in a seperate folder.      
-
 2. CMOR-ization
 ---------------
 
