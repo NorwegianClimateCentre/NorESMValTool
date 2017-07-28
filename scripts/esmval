@@ -3,8 +3,7 @@
 SCRIPTDIR=`dirname \`readlink -f $0\``
 ESMVALDIR=`readlink -f $SCRIPTDIR/../tools/ESMValTool`
 NAMELISTDIR=`readlink -f $SCRIPTDIR/../mods/namelists`
-ESMVAL_SCRATCH=/scratch/$USER/NorESMValTool
-ESMVAL_WORKPATH=$ESMVAL_SCRATCH/work
+ESMVAL_WORKPATH=`readlink -f $SCRIPTDIR/../data/work`
 
 # print help information if input arguments are missing 
 if [[ ! $1 || `echo $1 | head -1c` == '-' ]]
@@ -25,6 +24,9 @@ if [ ! -e $2 ]
 then 
   echo "Error: $2 does not exist. aborting..." 
 fi
+
+# ensure that permission of new folders and files will be open 
+umask u=rxw,g=rxw,o=rx
 
 # copy namelist and customize
 CASENAME=`basename $1 | cut -d"." -f1`
