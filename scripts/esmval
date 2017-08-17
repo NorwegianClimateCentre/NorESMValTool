@@ -43,5 +43,10 @@ if [ `uname -n | grep norstore | wc -l` -gt 0 ]
 then
   . /usr/share/Modules/init/sh
   module load python2/2.7 ncl 
+elif [ `uname -n | grep tos | wc -l` -gt 0 ]
+then
+  export NCARG_ROOT=/opt/ncl64 
+  export PATH=/opt/ncl64/bin/:${PATH} 
+  ulimit -s unlimited
 fi
 python main.py $NAMELIST 

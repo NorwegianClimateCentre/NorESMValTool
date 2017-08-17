@@ -8,7 +8,7 @@ mkdir -p $ESMVAL_HOME
 cp -rp $ESMVAL_REPO/scripts $ESMVAL_HOME
 cp -rp $ESMVAL_REPO/mods $ESMVAL_HOME
 cd $ESMVAL_HOME 
-ln -s $ESMVAL_REPO/data . 
+ln -sf $ESMVAL_REPO/data . 
 
 echo "donwload latest version of ESMValTool" 
 echo
@@ -20,10 +20,17 @@ echo "donwload and build latest version of noresm2cmor"
 echo
 git clone https://github.com/NorwegianClimateCentre/noresm2cmor.git
 cd $ESMVAL_HOME/tools/noresm2cmor/build 
-. /usr/share/Modules/init/sh
-module unload gcc pgi netcdf hdf5 netcdf.gnu hdf5.gnu
-module load netcdf.intel/4.4.0 udunits/2.2.17 uuid/1.5.1  
-make -f Makefile_cmor2.norstore_intel
+if [ `uname -n | grep norstore | wc -l` -gt 0 ]
+then
+  . /usr/share/Modules/init/sh
+  module unload gcc pgi netcdf hdf5 netcdf.gnu hdf5.gnu
+  module load netcdf.intel/4.4.0 udunits/2.2.17 uuid/1.5.1
+  make -f Makefile_cmor2.norstore_intel
+elif [ `uname -n | grep tos | wc -l` -gt 0 ]
+then
+  source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh -arch intel64 -platform linux
+  make -f Makefile_cmor2.nird_intel
+fi
 mkdir -p $ESMVAL_HOME/tools/noresm2cmor/data
 cd $ESMVAL_HOME/tools/noresm2cmor/data 
 ln -sf $ESMVAL_REPO/data/cmor cmorout
